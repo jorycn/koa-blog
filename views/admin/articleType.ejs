@@ -1,10 +1,7 @@
 <% include header %>
+<h2><%- xData._id ? '编辑' : '新增' %></h2>
 <div class="main" id="articleType">
-  <table class="table1">
-    <tr>
-      <td class="td1">&nbsp;</td>
-      <td><h2><%- xData._id ? '编辑' : '新增' %></h2></td>
-    </tr>
+  <table class="items table table-striped table-hover">
     <tr>
       <td class="td1">名称：</td>
       <td><input type="text" name="name" class="form-control" value="<%- xData.name %>" data-validate=<%- JSON.stringify({rules: ['isRequired'], msgs: ['名称不能为空！']}) %> /></td>

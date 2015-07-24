@@ -1,33 +1,47 @@
 <% include header %>
-<div class="main" id="blogInfo">
-  <table class="table1">
-    <tr>
-      <td class="td1">&nbsp;</td>
-      <td><h2>博客信息管理</h2></td>
-    </tr>
-    <tr>
-      <td class="td1">标题：</td>
-      <td><input type="text" name="title" class="form-control wd3" value="<%- blogInfo.title %>" data-validate=<%- JSON.stringify({rules: ['isRequired'], msgs: ['标题不能为空！']}) %> /></td>
-    </tr>
-    <tr>
-      <td class="td1">关键词：</td>
-      <td><textarea name="keywords" class="form-control wd6 hg1" data-validate=<%- JSON.stringify({rules: ['isRequired'], msgs: ['关键词不能为空！']}) %>><%- blogInfo.keywords %></textarea></td>
-    </tr>
-    <tr>
-      <td class="td1">描述：</td>
-      <td><textarea name="description" class="form-control wd6 hg1" data-validate=<%- JSON.stringify({rules: ['isRequired'], msgs: ['描述不能为空！']}) %>><%- blogInfo.description %></textarea></td>
-    </tr>
-    <tr>
-      <td class="td1">版权：</td>
-      <td><textarea name="copyright" class="form-control wd6 hg1" data-validate=<%- JSON.stringify({rules: ['isRequired'], msgs: ['版权不能为空！']}) %>><%- blogInfo.copyright %></textarea></td>
-    </tr>
-    <tr>
-      <td class="td1">&nbsp;</td>
-      <td>
-        <a href="javascript:void(0)" class="btn" data-id="<%- blogInfo._id %>">确定</a>&nbsp;&nbsp;
-        <span class="alert alert-warning js_alert"></span>
-      </td>
-    </tr>
-  </table>
+
+<h2>博客信息管理</h2>
+<div class="form form-horizontal" id="blogInfo">
+    <div class="form-group">
+      <label class="control-label col-lg-2 control-label required" for="AppSuperform_time_start">标题
+        <span class="required">*</span>
+      </label>
+      <div class="col-lg-10 ">
+          <input type="text" name="title" class="form-control" value="<%- blogInfo.title %>" data-validate=<%- JSON.stringify({rules: ['isRequired'], msgs: ['标题不能为空！']}) %> />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-2 control-label required" for="AppSuperform_time_start">标题
+        <span class="required">*</span>
+      </label>
+      <div class="col-lg-10 ">
+          <textarea name="keywords" class="form-control wd6 hg1" data-validate=<%- JSON.stringify({rules: ['isRequired'], msgs: ['关键词不能为空！']}) %>><%- blogInfo.keywords %></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-2 control-label required" for="AppSuperform_time_start">标题
+            <span class="required">*</span>
+        </label>
+        <div class="col-lg-10 ">
+            <textarea name="description" class="form-control wd6 hg1" data-validate=<%- JSON.stringify({rules: ['isRequired'], msgs: ['描述不能为空！']}) %>><%- blogInfo.description %></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-2 control-label required" for="AppSuperform_time_start">版权
+            <span class="required">*</span>
+        </label>
+        <div class="col-lg-10 ">
+            <textarea name="copyright" class="form-control wd6 hg1" data-validate=<%- JSON.stringify({rules: ['isRequired'], msgs: ['版权不能为空！']}) %>><%- blogInfo.copyright %></textarea>
+        </div>
+    </div>
+
+    <div class="col-lg-offset-2">
+        <div class="form-group">
+            <a href="javascript:void(0)" class="btn btn-primary" data-id="<%- blogInfo._id %>">确定</a>&nbsp;&nbsp;
+            <span class="alert alert-warning js_alert hide"></span>
+        </div>
+    </div>
+
 </div>
+
 <% include footer %>

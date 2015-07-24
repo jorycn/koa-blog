@@ -11,6 +11,7 @@ var
   views = require('co-views'),
   render;
 
+
 /**
  * 全局变量
  * C 配置

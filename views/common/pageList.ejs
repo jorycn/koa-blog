@@ -1,4 +1,4 @@
-<div class="pagelist">
+<ul class="pagination">
   <% var size, numRange, current, path, pageCount, pagePrev, pageNext, pageNumPrev, pageNumNext, i, j; %>
   <% var rowCount = pageList.rowCount; %>
   <% if (rowCount > 0) { %>
@@ -13,22 +13,30 @@
   <% pageNumNext = pageNext; %>
   <% i = j = 0; %>
   <% if (pagePrev > 0) { %>
-  <a href="<%- path %>1" class="pagestart">«</a>
-  <a href="<%- path %> <%- pagePrev %>" class="pageprev">‹&nbsp;</a>
+  <li><a href="<%- path %>1" class="pagestart">«</a></li>
+  <li><a href="<%- path %> <%- pagePrev %>" class="pageprev">‹&nbsp;</a></li>
   <% } else { %>
-  <span class="pagestart">«</span>
-  <span class="pageprev">‹&nbsp;</span>
+  <li>
+    <a href="#" aria-label="Previous">
+      <span aria-hidden="true">&laquo;</span>
+    </a>
+  </li>
+  <li class="pageprev">
+      <a href="#" aria-label="Previous">
+          ‹&nbsp;
+      </a>
+ </li>
   <% } %>
   <% while(i < numRange) { %>
   <% if (pageNumPrev > 0) { %>
-  <a href="<%- path %> <%- pageNumPrev %>"><%- pageNumPrev %></a>
+  <li><a href="<%- path %> <%- pageNumPrev %>"><%- pageNumPrev %></a></li>
   <% } %>
   <% pageNumPrev++; i++; %>
   <% } %>
-  <span class="active"><%- current %></span>
+  <li class="active"><a href="" class="disabled"><%- current %></a></li>
   <% while(j < numRange) { %>
   <% if (pageNumNext <= pageCount) { %>
-  <a href="<%- path %> <%- pageNumNext %>"><%- pageNumNext %></a>
+ <li><a href="<%- path %> <%- pageNumNext %>"><%- pageNumNext %></a></li>
   <% pageNumNext++; %>
   <% } else { %>
   <% break; %>
@@ -36,14 +44,24 @@
   <% j++ %>
   <% } %>
   <% if (pageNext <= pageCount) { %>
-  <a href="<%- path %> <%- pageNext %>" class="pagenext">&nbsp;›</a>
-  <a href="<%- path %> <%- pageCount %>" class="pageend">»</a>
+  <li><a href="<%- path %> <%- pageNext %>" class="pagenext">&nbsp;›</a></li>
+  <li>
+      <a href="<%- path %> <%- pageCount %>" class="pageend"><span aria-hidden="true">&raquo;</span></a>
+  </li>
   <% } else { %>
-  <span class="pagenext">&nbsp;›</span>
-  <span class="pageend">»</span>
+  <li class="pagenext">
+      <a href="#" aria-label="Next">
+          <span aria-hidden="true">&nbsp;›</span>
+      </a>
+  </li>
+  <li class="pageend">
+    <a href="#" aria-label="Next">
+      <span aria-hidden="true">&raquo;</span>
+    </a>
+  </li>
   <% } %>
-  <span class="total"><%- rowCount %>条/共<%- pageCount %>页</span>
+  <li class="total"><%- rowCount %>条/共<%- pageCount %>页</li>
   <% } else { %>
   无记录
   <% } %>
-</div>
+</ul>
